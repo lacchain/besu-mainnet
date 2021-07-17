@@ -1,0 +1,79 @@
+---
+- name: Init besu
+  debug:
+    msg: "Init Besu"
+
+- name: create lacchain directories
+  file:
+    path: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+    state: directory
+  with_items:
+    - { dest: "~/lacchain/data/keystore", mode: "0440" }
+    - { dest: "~/lacchain/logs", mode: "0440" }
+    - { dest: "~/lacchain/tmp", mode: "0440" }
+    - { dest: "~/lacchain/orion/keystore", mode: "0440"}
+    - { dest: "~/lacchain/scripts", mode: "0440"}
+
+- name: initializing besu from genesis.json
+  debug:
+    msg: Initializing Besu
+
+- name: Copy genesis ibft2.0 file
+  copy:
+    src: "{{ role_path }}/files/genesis.json"
+    dest: ~/lacchain/data/genesis.json
+    mode: 0755
+
+- name: Generate node key
+  shell: pantheon --data-path=/root/lacchain/data public-key export-address --to=/root/lacchain/data/nodeAddress | grep -oE "0x[A-Fa-f0-9]*" | sed 's/0x//'
+  register: enode_key
+
+- name: print enode key
+  debug:
+    msg: enode://{{enode_key.stdout}}@{{node_ip}}:60606
+
+- name: Generate shell script to execute besu service
+  template:
+    src: "startpantheon.j2"
+    dest: "~/lacchain/start-pantheon.sh"
+    mode: 0775
+    force: yes
+
+- name: Generate Besu configuration file when Orion is Enabled
+  template:
+    src: "pantheon-orion-config.j2"
+    dest: "~/lacchain/config.toml"
+    mode: 0775
+  when: orion | bool
+
+- name: Generate Besu configuration file when Orion is Disabled
+  template:
+    src: "pantheon-config.j2"
+    dest: "~/lacchain/config.toml"
+    mode: 0775
+  when: orion | bool == false
+
+- name: Copy service file to systemd
+  copy:
+    src: "{{ role_path }}/files/pantheon.service"
+    dest: /lib/systemd/system/pantheon.service
+    mode: 0775
+
+- name: Copy Log configuration file to lacchain
+  copy:
+    src: "{{ role_path }}/files/log.xml"
+    dest: "~/lacchain/log.xml"
+    mode: 0775
+
+- name: Copy Orion Public Key
+  copy:
+    src: "{{ role_path }}/files/nodeKey.pub"
+    dest: ~/lacchain/orion/keystore/nodeKey.pub
+    mode: 0644
+  when: orion | bool
+
+- name: Enable service Besu
+  service:
+    name: pantheon
+    enabled: yes

@@ -1,0 +1,51 @@
+- hosts: writer
+  gather_facts: yes
+  become: yes
+  vars:
+    install: true
+  vars_prompt:
+    - name: "Please read the terms and conditions before installing this software: https://github.com/lacchain/pantheon-network/blob/master/TERMS_AND_COND_WRITER_NODE.md .Press ENTER  "
+
+    - name: "haveRead"
+      prompt: "Have you read the Terms and Conditions of use of LACChain Test Network? [Y/N]"
+      private: no
+
+    - name: "isAgree"
+      prompt: "Do you agree with the Terms and Conditions of use of LACChain Test Network? [Y/N]"
+      private: no
+      
+  tasks:
+    - fail:
+        msg: 'Please Accept the conditions by typing Y when prompted.'
+      when: " (haveRead != 'Y' and haveRead != 'y') or ( isAgree != 'Y' and isAgree != 'y' ) "
+
+    - debug:
+        msg: "Starting Installation"
+
+- hosts: orion
+  gather_facts: yes
+  become: yes
+  vars:
+    install: true
+
+  roles:
+    - role: lacchain-orion-node
+      when: orion | bool
+
+- hosts: tessera
+  gather_facts: yes
+  become: yes
+  vars:
+    install: true
+
+  roles:
+    - role: lacchain-tessera-node
+      when: tessera | bool
+
+- hosts: writer
+  gather_facts: yes
+  become: yes
+  vars:
+    install: true
+  roles:
+    - lacchain-writer-node
