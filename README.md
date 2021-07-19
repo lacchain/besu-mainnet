@@ -26,7 +26,7 @@
 
 ## Deploy your node!
 
-* To deploy you node for free and use the LACChain Blockchain Network, go [HERE](https://github.com/lacchain/besu-network/blob/master/DEPLOY_NODE.md). 
+* To deploy you node for free and use the LACChain Blockchain Network, go [HERE](https://github.com/lacchain/besu-mainnet/blob/main/DEPLOY_NODE.md). 
 
 ## Copyright 2021 LACChain
 
