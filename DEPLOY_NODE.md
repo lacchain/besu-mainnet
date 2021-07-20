@@ -311,6 +311,3 @@ This work is licensed under a [license](http://creativecommons.org/licenses/by-n
 &nbsp;
 &nbsp;
 
-**Acknowledgement**
-
-We acknowledge very much the contributions of [everis](https://www.everis.com/) to this development, leading the first deployment of the network and actively participating in the day-to-day.
