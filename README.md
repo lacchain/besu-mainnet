@@ -1,3 +1,5 @@
+***This Network is not yet oppened to public. The release of this network is imminent. If you want to use a LACChain Besu Network, please go to the documentation of our [ProTestnet](https://github.com/lacchain/besu-pro-testnet) which is being used by more than 60 entities from LAC***.
+
 # LACChain #
 
 ## Introduction
