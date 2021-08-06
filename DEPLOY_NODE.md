@@ -53,8 +53,8 @@ $ sudo apt-get install ansible
 To configure and install Pantheon and Orion, you must clone this git repository in your **local machine**.
 
 ```shell
-$ git clone https://github.com/lacchain/besu-network
-$ cd besu-network/
+$ git clone https://github.com/lacchain/besu-mainnet
+$ cd besu-mainnet/
 ```
 
 ### Obtain SSH access to your remote machine ###
@@ -179,7 +179,7 @@ ok: [x.x.x.x] => {
 
 * If everything worked, an ORION service **(if it was chosen)** and a PANTHEON service managed by Systemctl will be created with **stopped** status on each instance.
 * After installation has finished you will have nginx installed on each instance chosen; it will be up and running and will allow secure and encrypted RPC connections (on the default 443 port). Certificates used to create the secure connections are self signed; it is up to you decide another way to secure RPC connections or continue using the provided  default service.
-* In order to be permissioned, now you need to follow the [administrative steps of the permissioning process](https://github.com/lacchain/besu-network/blob/master/PERMISSIONING_PROCESS.md).
+* In order to be permissioned, now you need to follow the [administrative steps of the permissioning process](https://github.com/lacchain/besu-mainnet/blob/main/PERMISSIONING_PROCESS.md).
 * Once you are permissioned, you can verify that you are connected to other nodes in the network by following the steps detailed in [#issue33](https://github.com/lacchain/besu-network/issues/33).
 
 ## Node Configuration
@@ -295,7 +295,7 @@ If that doesn't solve the problem, contact us at info@lacchain.net.
 	
 ## Deploying Dapps on LACCHAIN
 
-For a quick overview of some mainstream tools that you can use to deploy Smart Contracts, connect external applications and broadcast transactions to the LACChain Besu Network, you can check our [Guide](https://github.com/lacchain/besu-network/blob/master/DEPLOY_APPLICATIONS.md).
+For a quick overview of some mainstream tools that you can use to deploy Smart Contracts, connect external applications and broadcast transactions to the LACChain Besu Network, you can check our [Guide](https://github.com/lacchain/besu-mainnet/blob/main/DEPLOY_APPLICATIONS.md).
 
 ## Contact
 
@@ -320,4 +320,3 @@ limitations under the License.
 
 &nbsp;
 &nbsp;
-
