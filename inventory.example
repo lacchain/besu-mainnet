@@ -23,6 +23,7 @@
 
 #Current Besu commit sha obtained from: https://github.com/hyperledger/besu/releases
 #Tested BESU versions: 
+# 21.7.3
 # 21.1.6
 # 21.1.3
 # 20.1.2
@@ -48,7 +49,7 @@ bootnode=false
 validator=false
 first_node=false
 install=false
-besu_release_version='21.1.6'
+besu_release_version='21.7.3'
 orion_release_version='1.6.0'
 tessera_release_version='21.1.1'
 dns_name=lacchain.com

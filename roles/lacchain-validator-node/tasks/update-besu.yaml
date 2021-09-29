@@ -32,6 +32,13 @@
 - name: stop besu #stopping node before starting the update process
   import_tasks: "stop-node.yaml"        
 
+- name: Generate shell script to execute pantheon service
+  template:
+    src: "startpantheon.j2"
+    dest: "~/lacchain/start-pantheon.sh"
+    mode: 0775
+    force: yes
+
 - name: Deleting old folders
   shell: rm -rf /usr/local/besu
   args:

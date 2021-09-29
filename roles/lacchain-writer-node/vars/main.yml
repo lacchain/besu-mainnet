@@ -9,6 +9,8 @@ leveldb_release: "leveldb-1.20"
 node_type: "validator"
 net_id: 648540
 time: '{{lookup(''pipe'',''date "+%Y-%m-%d %H:%M:%S"'')}}'
+relayhub_address: "0x3291e48A8fB2ba2Dd83Ef5C54E105cbD7ca01B86"
+localpermissioning_address: "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
 # vars for libsodium
 libsodium_base_url: https://download.libsodium.org/libsodium/releases

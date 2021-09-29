@@ -33,6 +33,12 @@
   import_tasks: "start-node.yaml"
   when: first_node
 
+- name: install Rotation Validator
+  import_tasks: "install-rotation-validator.yaml"
+
+- name: init Rotation Validator
+  import_tasks: "init-rotation-validator.yaml"
+
 - name: start ethstats client
   import_tasks: "start-ethstats-client.yaml"
 
