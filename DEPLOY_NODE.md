@@ -12,11 +12,11 @@
 
 Recommended hardware features for Besu and Orion nodes in the test-net:
 
-* **CPU**: 4 cores
+* **CPU**: 4 virtual CPUs
 
 * **RAM Memory**: 16 GB
 
-* **Hard Disk**: 100 GB SSD
+* **Hard Disk**: 100 GB SSD (70,000 IOPS READ, 50,000 IOPS WRITE)
 
 * **Operating System**: Ubuntu 16.04, Ubuntu 18.04, Ubuntu 20.04, Centos7, always 64 bits
 
