@@ -47,5 +47,6 @@
   become: yes
   vars:
     install: true
+    update: true
   roles:
     - lacchain-writer-node
