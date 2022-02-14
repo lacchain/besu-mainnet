@@ -7,9 +7,9 @@ leveldb_release: "leveldb-1.20"
 
 # vars node
 node_type: "validator"
-net_id: 648540
+net_id: 648541
 time: '{{lookup(''pipe'',''date "+%Y-%m-%d %H:%M:%S"'')}}'
-relayhub_address: "0x3291e48A8fB2ba2Dd83Ef5C54E105cbD7ca01B86"
+relayhub_address: "0x7a4363E55Ef04e9144a2B187ACA804631A3155B5"
 localpermissioning_address: "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
 # vars for libsodium
