@@ -1,5 +1,7 @@
 - hosts: validators
   gather_facts: yes
   become: yes
+  vars:
+    update: true
   roles:
     - lacchain-validator-node
