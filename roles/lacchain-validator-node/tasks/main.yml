@@ -1,7 +1,8 @@
 ---
 - name: Install Validator Node
   import_tasks: "install.yaml"
-  when: install
+  when: install | default(False) | bool
 
 - name: Update Validator Node
   import_tasks: "update.yaml"
+  when: update | default(False) | bool
